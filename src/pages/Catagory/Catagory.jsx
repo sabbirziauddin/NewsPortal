@@ -8,7 +8,11 @@ const Catagory = () => {
     
     return (
       <div>
-        <h3>This is home Catagory :{allNews.length}</h3>
+        <h3>
+          {" "}
+          <span className="text-primary">{allNews.length}</span> News has this
+          catagory
+        </h3>
         {allNews.map((news) => (
           <SpecificCatagories key={news._id} news={news}></SpecificCatagories>
         ))}

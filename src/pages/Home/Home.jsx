@@ -5,11 +5,16 @@ import SpecificCatagories from '../../Shared/SpecificCatagories/SpecificCatagori
 const Home = () => {
     const allNews = useLoaderData();
     return (
-        <div>
-            <h3>This is home : {allNews.length} </h3>
-            {allNews.map(news =><SpecificCatagories key={news._id} news={news}></SpecificCatagories>)}
-
-        </div>
+      <div>
+        <h3>
+          {" "}
+          <span className="text-primary"> {allNews.length}</span> News in this
+          page
+        </h3>
+        {allNews.map((news) => (
+          <SpecificCatagories key={news._id} news={news}></SpecificCatagories>
+        ))}
+      </div>
     );
 };
 
