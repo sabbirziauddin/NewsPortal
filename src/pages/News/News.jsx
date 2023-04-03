@@ -17,7 +17,7 @@ const News = () => {
         <div className="d-flex justify-content-between align-items-center">
           <p className="fw-bold">
             Author:
-            <span style={{ fontSize: "10px" }}>{author?.name}</span>
+            <span style={{ fontSize: "14px" }}>{author?.name}</span>
           </p>
           <p className="fw-bold">
             Published Date:{" "}
@@ -28,7 +28,7 @@ const News = () => {
               style={{ fontSize: "14px" }}
               className="text-warning me-1"
             ></FaStar>
-            <span style={{ fontSize: "10px" }}>{rating?.number}</span>
+            <span style={{ fontSize: "14px" }}>{rating?.number}</span>
           </div>
         </div>
         <Card.Text className="text-wrap fs-6">{details}</Card.Text>

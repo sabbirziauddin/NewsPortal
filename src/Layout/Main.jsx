@@ -14,19 +14,22 @@ const Main = () => {
         <Header></Header>
         <Container>
           <Row>
-            <Col lg={2} className="d-none d-lg-block">
+            <Col lg={2} className="d-none d-lg-block ">
               <LeftSideNav></LeftSideNav>
             </Col>
             <Col lg={7}>
               <Outlet></Outlet>
             </Col>
             <Col lg={3}>
-            
               <RightSideNav></RightSideNav>
             </Col>
           </Row>
+          <Row>
+            <Col className="d-flex justify-content-center " lg={12}>
+              <Fotter></Fotter>
+            </Col>
+          </Row>
         </Container>
-        <Fotter></Fotter>
       </div>
     );
 };

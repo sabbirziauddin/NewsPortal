@@ -10,7 +10,7 @@ const LeftSideNav = () => {
           .then((data) =>setCatagories(data));
     },[])
     return (
-      <div >
+      <div className=" header-container">
         {catagories.map((catagory) => (
           <p key={catagory.id}>
             <Link to={`catagory/${catagory.id}`}>{catagory.name}</Link>
