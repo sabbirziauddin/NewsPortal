@@ -24,11 +24,6 @@ const Main = () => {
               <RightSideNav></RightSideNav>
             </Col>
           </Row>
-          <Row>
-            <Col className="d-flex justify-content-center " lg={12}>
-              <Fotter></Fotter>
-            </Col>
-          </Row>
         </Container>
       </div>
     );

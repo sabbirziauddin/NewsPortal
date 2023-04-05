@@ -12,7 +12,6 @@ import Button from "react-bootstrap/Button";
 
 const Header = () => {
   const { user, logOut } = useContext(Authcontext);
-  console.log(user);
   const handleLogOut = () => {
     logOut().then(() => {
       console.log("sign out successfully");
@@ -57,26 +56,31 @@ const Header = () => {
                   </Button>
                 </Nav.Link>
               </>
-              <Nav.Link className="d-flex justify-content-center align-items-center">
-                <Link to="/login">
-                  <Button
-                    className="text-white text-decoration-none p-0"
-                    variant="link"
-                  >
-                    Login
-                  </Button>
-                </Link>
-              </Nav.Link>
-              <Nav.Link className="d-flex justify-content-center align-items-center">
-                <Link to="/signup">
-                  <Button
-                    className="text-white text-decoration-none p-0"
-                    variant="link"
-                  >
-                    Sing Up
-                  </Button>
-                </Link>
-              </Nav.Link>
+              {!user?.uid && (
+                <>
+                  {" "}
+                  <Nav.Link className="d-flex justify-content-center align-items-center">
+                    <Link to="/login">
+                      <Button
+                        className="text-white text-decoration-none p-0"
+                        variant="link"
+                      >
+                        Login
+                      </Button>
+                    </Link>
+                  </Nav.Link>
+                  <Nav.Link className="d-flex justify-content-center align-items-center">
+                    <Link to="/signup">
+                      <Button
+                        className="text-white text-decoration-none p-0"
+                        variant="link"
+                      >
+                        Sing Up
+                      </Button>
+                    </Link>
+                  </Nav.Link>
+                </>
+              )}
             </Nav>
             <div className="d-lg-none">
               <LeftSideNav></LeftSideNav>
