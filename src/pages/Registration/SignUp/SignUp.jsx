@@ -5,7 +5,8 @@ import { Card, Col, Container, Row, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
-  const { user, createUser } = useContext(Authcontext);
+  const { user, createUser, updateUserProfile } = useContext(Authcontext);
+
   const [errorText, setErrorText] = useState("");
   const [info, setInfo] = useState("");
   const [diabaleBtn, setDisableBtn] = useState(false);
@@ -23,14 +24,25 @@ const SignUp = () => {
         const user = res.user;
         console.log("user from create user with email password", user);
         form.reset();
+        handleUpdateProfile(name, photoUrl);
         setInfo("Register successfully !");
       })
       .catch((err) => {
         setErrorText(err.message);
       });
   };
+  //update profile
+  const handleUpdateProfile = (name, photoUrL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoUrL,
+    };
+    updateUserProfile(profile);
+  };
+
   //disable the registration button
   const handleDisableBtnChk = (e) => {
+    // console.log(e.target.checked);
     setDisableBtn(e.target.checked);
   };
   return (
@@ -89,7 +101,14 @@ const SignUp = () => {
                         <Form.Check
                           onClick={handleDisableBtnChk}
                           type="checkbox"
-                          label={<Link to="/termscons">read Terms</Link>}
+                          label={
+                            <>
+                              Accept{" "}
+                              <Link to="/termscons">
+                                Terms <span>&</span> condition
+                              </Link>
+                            </>
+                          }
                         />
                       </Form.Group>
 
